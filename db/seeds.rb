@@ -7,14 +7,24 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+# Create 10 users using Devise
+10.times do |i|
+  User.create!(
+    email: Faker::Internet.email,
+    password: "password", # Set a default password for simplicity
+    password_confirmation: "password"
+  )
+end
 
+# Create 10 Sizzler instances, each one assigned to a random user
 10.times do
-  Sizzler.create(
+  Sizzler.create!(
     title: Faker::Name.name,
-    location: Faker::Location.city,
-    cooking_style: ["Charcoal", "Wood", "Gas", "Egg","Kibachi"].sample,
+    location: Faker::Address.city,
+    cooking_style: ["Charcoal", "Wood", "Gas", "Egg", "Kibachi"].sample,
     price: Faker::Commerce.price,
     speciality: ["Seafood", "Traditional", "Sosatie", "Potjiekos", "Boerewors", "Braaibroodjies"].sample,
     user_id: User.pluck(:id).sample
   )
 end
+
