@@ -7,3 +7,14 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+10.times do
+  Sizzler.create(
+    title: Faker::Name.name,
+    location: Faker::Location.city,
+    cooking_style: ["Charcoal", "Wood", "Gas", "Egg","Kibachi"].sample,
+    price: Faker::Commerce.price,
+    speciality: ["Seafood", "Traditional", "Sosatie", "Potjiekos", "Boerewors", "Braaibroodjies"].sample,
+    user_id: User.pluck(:id).sample
+  )
+end
