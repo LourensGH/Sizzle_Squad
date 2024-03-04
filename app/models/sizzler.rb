@@ -1,0 +1,2 @@
+class Sizzler < ApplicationRecord
+end
