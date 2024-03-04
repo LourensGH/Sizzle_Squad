@@ -21,10 +21,9 @@ end
   Sizzler.create!(
     title: Faker::Name.name,
     location: Faker::Address.city,
-    cooking_style: ["Charcoal", "Wood", "Gas", "Egg", "Kibachi"].sample,
+    cooking_style: ["Charcoal", "Wood", "Gas", "Hibachi grill"].sample,
     price: Faker::Commerce.price,
-    speciality: ["Seafood", "Traditional", "Sosatie", "Potjiekos", "Boerewors", "Braaibroodjies"].sample,
+    speciality: ["Seafood", "Traditional", "Sosatie", "Potjiekos", "Boerewors", "Braaibroodjies", "Vegetarian"].sample,
     user_id: User.pluck(:id).sample
   )
 end
-
