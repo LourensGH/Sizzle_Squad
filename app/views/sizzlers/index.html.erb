@@ -1,11 +1,17 @@
-<%= link_to "List a Sizzler", new_sizzler_path %>
-<% @sizzlers.each do |sizzler| %>
-  <div>
-    <h1><%= link_to sizzler.title, sizzler_path(sizzler) %></h1>
-    <p><%= sizzler.location %></p>
-    <p><%= sizzler.cooking_style%></p>
-    <p><%= sizzler.price %></p>
-    <p><%= sizzler.speciality %></p>
-    <p><%= sizzler.user.email %></p>
+<div class="sizzle-container">
+  <% @sizzlers.each do |sizzler| %>
+  <div class="card-sizzle">
+    <div class="title">
+      <%= image_tag("sizzle_icon.png", class: "icon-flame") %>
+      <h1><%= sizzler.title %></h1>
+    </div>
+    <p><strong>Location:</strong> <%= sizzler.location %></p>
+    <p><strong>Cooking style:</strong> <%= sizzler.cooking_style%></p>
+    <p><strong>Price:</strong> <%= sizzler.price %></p>
+    <p><strong>Speciality:</strong> <%= sizzler.speciality %></p>
+    <p><strong>Owner:</strong> <%= sizzler.user.email %></p>
+
+    <%= link_to "View", sizzler_path(sizzler), class: "btn btn-outline-primary rounded w-100" %>
   </div>
-<% end %>
+  <% end %>
+</div>
