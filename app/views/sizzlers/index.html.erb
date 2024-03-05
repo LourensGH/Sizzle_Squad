@@ -1,0 +1,8 @@
+<% @sizzlers.each do |sizzler| %>
+  <h1><%= link_to sizzler.title, sizzler_path(sizzler) %></h1>
+  <p><%= sizzler.location %></p>
+  <p><%= sizzler.cooking_style%></p>
+  <p><%= sizzler.price %></p>
+  <p><%= sizzler.speciality %></p>
+  <p><%= sizzler.user.email %></p>
+<% end %>
