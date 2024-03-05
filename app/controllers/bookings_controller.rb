@@ -1,6 +1,7 @@
 class BookingsController < ApplicationController
 
   def new
+    @sizzler = Sizzler.find(params[:sizzler_id])
     @booking = Booking.new
   end
 
