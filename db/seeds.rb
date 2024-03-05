@@ -8,6 +8,11 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 # Create 10 users using Devise
+puts "Clearing the DB"
+Booking.destroy_all
+Sizzler.destroy_all
+User.destroy_all
+puts "Creating the Users"
 10.times do |i|
   User.create!(
     email: Faker::Internet.email,
@@ -15,11 +20,11 @@
     password_confirmation: "password"
   )
 end
-
+puts "Creating the Sizzlers"
 # Create 10 Sizzler instances, each one assigned to a random user
 10.times do
   Sizzler.create!(
-    title: Faker::Name.name,
+    title: Faker::Company.name,
     location: Faker::Address.city,
     cooking_style: ["Charcoal", "Wood", "Gas", "Hibachi grill"].sample,
     price: Faker::Commerce.price,
@@ -27,3 +32,4 @@ end
     user_id: User.pluck(:id).sample
   )
 end
+puts "done!"
