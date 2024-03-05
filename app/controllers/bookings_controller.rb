@@ -16,10 +16,11 @@ class BookingsController < ApplicationController
   end
 
   def show
-    @booking = Booking.find(params[:id])
+    @bookings = Booking.all
   end
 
   def destroy
+    @sizzler = Sizzler.find(params[:sizzler_id])
     @booking = Booking.find(params[:id])
     @booking.delete
     redirect_to root_path

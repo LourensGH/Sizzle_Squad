@@ -1,6 +1,10 @@
 <h1>All bookings</h1>
-<div style="display: block;">
-  <%= @booking.user.email %>
-  <%= @booking.date %>
-  <%= @booking.sizzler.title %>
-</div>
+
+<% @bookings.each do |booking| %>
+  <div style="display: block;">
+    <%= booking.user.email %>
+    <%= booking.date %>
+    <%= booking.sizzler.title %>
+  </div>
+  <%= link_to "Delete", sizzler_booking_path %>
+<% end %>
