@@ -1,0 +1,2 @@
+class SizzlersController < ApplicationController
+end
