@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+
 nav {
   display: flex;
   justify-content: space-between;
@@ -7,6 +9,7 @@ nav {
   width: 100%;
   padding: 8px;
   background-color: white;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
 
   img {
     width: 125px;
@@ -24,14 +27,15 @@ nav {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 45%;
+  width: 20%;
   background-color: white;
-  padding: 16px;
+  padding: 24px;
   margin: 16px;
   border-radius: 10px;
 }
 
 .sizzle-container {
+  justify-content: center;
   display: flex;
   flex-wrap: wrap;
 }
@@ -48,6 +52,11 @@ nav {
   margin: 8px;
 
   h1 {
+    color: #122A4D;
+    font-size: 24px;
+    font-family: "Archivo Black", sans-serif;
+    font-weight: 400;
+    font-style: normal;
     margin: 0;
   }
 }
