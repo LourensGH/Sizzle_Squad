@@ -1,6 +1,6 @@
 <%= link_to "List a Sizzler", new_sizzler_path %>
 <% @sizzlers.each do |sizzler| %>
-  <div>
+  <div class="flex">
     <h1><%= link_to sizzler.title, sizzler_path(sizzler) %></h1>
     <p><%= sizzler.location %></p>
     <p><%= sizzler.cooking_style%></p>
