@@ -1,8 +1,10 @@
 class BookingsController < ApplicationController
 
+
   def new
     @sizzler = Sizzler.find(params[:sizzler_id])
     @booking = Booking.new
+    @user = current_user
   end
 
   def create
@@ -27,6 +29,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:date)
+    params.require(:booking).permit(:date, :user_id, :sizzler_id)
   end
+
 end
