@@ -1,5 +1,6 @@
 <h1>All bookings</h1>
-
-<% @bookings.each do |booking| %>
-  <div><p><%= booking.sizzler.title %></p></div>
-<% end %>
+<div style="display: block;">
+  <%= @booking.user.email %>
+  <%= @booking.date %>
+  <%= @booking.sizzler.title %>
+</div>
