@@ -1,6 +1,7 @@
 class BookingsController < ApplicationController
 
   def new
+    @sizzler = Sizzler.find(params[:sizzler_id])
     @booking = Booking.new
   end
 
@@ -9,7 +10,8 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to root_path, notice: "Booking successfully created."
     else
-      render :new, status: unprocessable_entity
+      # render :new, status: unprocessable_entity
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -26,6 +28,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:date, )
+    params.require(:booking).permit(:date)
   end
 end
