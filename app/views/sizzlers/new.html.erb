@@ -1,1 +1,9 @@
-<h1>lekker sizzler form here as you can see</h1>
+<%= simple_form_for(@sizzler) do |f| %>
+  <%= f.input :title %>
+  <%= f.input :location%>
+  <%= f.input :cooking_style, collection: ["Charcoal", "Wood", "Gas", "Hibachi grill"], prompt: "Select Cooking-Style" %>
+  <%= f.input :price %>
+  <%= f.input :speciality, collection: ["Seafood", "Traditional", "Sosatie", "Potjiekos", "Boerewors", "Braaibroodjies", "Vegetarian"], prompt: "Select Specialty"%>
+  <%= f.hidden_field :user_id, value: @user.id %>
+  <%= f.submit %>
+<% end %>

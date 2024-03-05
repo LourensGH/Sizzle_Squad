@@ -9,6 +9,7 @@ class SizzlersController < ApplicationController
 
   def new
     @sizzler = Sizzler.new
+    @user = current_user
   end
 
   def create
@@ -17,7 +18,7 @@ class SizzlersController < ApplicationController
     if @sizzler.save!
       redirect_to sizzler_path(@sizzler), notice: "Sizzler was successfully created."
     else
-      render :new, status: :unprocessable_entity
+      render :new, notice: 'couldnt create sizzler'
     end
   end
 
