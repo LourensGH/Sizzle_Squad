@@ -6,6 +6,6 @@ class PagesController < ApplicationController
   def show
     @sizzler = Sizzler.find(params[:id])
     @user = current_user
-    @bookings = Booking.where(user_id: @user)
+    @bookings = Booking.where(sizzler_id: @sizzler)
   end
 end
