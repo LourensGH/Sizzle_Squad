@@ -18,12 +18,14 @@ class BookingsController < ApplicationController
 
   def show
     @bookings = Booking.all
+    @booking = Booking.find(params[:id])
+    @sizzler = @booking.sizzler
   end
 
   def destroy
     @sizzler = Sizzler.find(params[:sizzler_id])
-    @booking = Booking.find(params[:id])
-    @booking.delete
+    @booking = @sizzler.bookings.find(params[:id])
+    @booking.destroy  # Destroy the booking
     redirect_to root_path
   end
 
