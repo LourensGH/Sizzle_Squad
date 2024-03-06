@@ -1,3 +1,7 @@
-<h1>hire this sizzler</h1>
+<h1>Hire <%= @sizzler.title %></h1>
 
-<%= link_to "Hire me",  new_sizzler_booking_path(@sizzler) %>
+<p>R<%= @sizzler.price%> per hour</p>
+
+<%= link_to "Hire",  new_sizzler_booking_path(@sizzler) %>
+
+<%= link_to "All bookings", sizzler_bookings(@sizzler) %>

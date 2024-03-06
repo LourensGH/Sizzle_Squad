@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  padding: 8px;
+  background-color: white;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+
+  img {
+    width: 125px;
+    margin: 16px;
+  }
+  .nav-links{
+    margin: 16px;
+    a {
+      margin: 16px;
+    }
+  }
+}
+
+.card-sizzle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 20%;
+  background-color: white;
+  padding: 24px;
+  margin: 16px;
+  border-radius: 10px;
+}
+
+.sizzle-container {
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+.icon-flame {
+  margin-right: 16px;
+  width: 40px;
+  height: 40px;
+  border-radius: 100px;
+  background-color: #FBB316;
+}
+.title {
+  display: flex;
+  align-items: center;
+  margin: 8px;
+
+  h1 {
+    color: #122A4D;
+    font-size: 24px;
+    font-family: "Archivo Black", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    margin: 0;
+  }
+}
