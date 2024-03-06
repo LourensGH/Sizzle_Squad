@@ -7,6 +7,17 @@ class SizzlersController < ApplicationController
 
   def show
     @sizzler = Sizzler.find(params[:id])
+
+    # Trigger geocoding if the sizzler's location has changed
+    @markers = []
+
+    if @sizzler.geocoded?
+      @marker = {
+        lat: @sizzler.latitude,
+        lng: @sizzler.longitude
+      }
+      @markers << @marker
+    end
   end
 
   def new
