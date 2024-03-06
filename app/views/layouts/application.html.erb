@@ -11,6 +11,7 @@
     <%= stylesheet_link_tag("custom") %>
     <%= stylesheet_link_tag( "account" ) %>
     <%= stylesheet_link_tag( "sizzlers_new" ) %>
+    <%= stylesheet_link_tag( "all_bookings" ) %>
 
     <%= javascript_importmap_tags %>
   </head>
@@ -20,7 +21,7 @@
       <div class="logo">
         <%= link_to image_tag("Sizzle-logo.png"), root_path  %>
       </div>
-      <div class="nav-links">
+      <div class="nav-links mx-5">
         <%= link_to "Create a Sizzler", new_sizzler_path %>
         <%= link_to "my sizzles", pages_path %>
         <%#= link_to "my bookings", sizzler_booking_path(@sizzler) %>

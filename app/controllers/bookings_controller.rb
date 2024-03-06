@@ -22,15 +22,15 @@ class BookingsController < ApplicationController
   def show
     @user = current_user
     @bookings = Booking.all
-    @booking = Booking.find(params[:id])
-    @sizzler = @booking.sizzler
+    # @booking = Booking.find(params[:id])
+    # @sizzler = @booking.sizzler
   end
 
   def destroy
     @booking = Booking.find(params[:id])
     @sizzler = @booking.sizzler
     @booking.destroy
-    redirect_to sizzler_bookings_path(@sizzler.id)
+    redirect_to sizzler_booking_path(@sizzler)
   end
 
   private
