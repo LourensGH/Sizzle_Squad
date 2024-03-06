@@ -9,7 +9,7 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     if @booking.save
-      redirect_to sizzler_booking_path(@booking, @booking.sizzler, @booking.accepted), notice: "Booking successfully created."
+      redirect_to sizzler_booking_path(@booking, @booking.sizzler), notice: "Booking successfully created."
     else
       render :new, status: :unprocessable_entity
     end
