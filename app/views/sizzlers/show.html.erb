@@ -1,13 +1,14 @@
-<h1>Hire <%= @sizzler.title %></h1>
+<div class="bookings-container">
+  <h1>Hire <%= @sizzler.title %></h1>
 
-<p>R<%= @sizzler.price%> per hour</p>
+  <p>R<%= @sizzler.price%> per hour</p>
 
-<div style="width: 50%; height: 600px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  <div style="width: 50%; height: 600px;"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+
+  <%= link_to "Hire this Sizzler", new_sizzler_booking_path(@sizzler.id), class: "btn btn-primary" %>
 </div>
 
-<%= link_to "Hire",  new_sizzler_booking_path(@sizzler) %>
-
-<%# <%= link_to "All bookings", sizzler_booking(@sizzler) %>

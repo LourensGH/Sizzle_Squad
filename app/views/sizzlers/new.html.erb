@@ -1,10 +1,13 @@
-<%= simple_form_for(@sizzler) do |f| %>
-  <%= f.input :title %>
-  <%= f.input :location%>
-  <%= f.input :cooking_style, collection: ["Charcoal", "Wood", "Gas", "Hibachi grill"], prompt: "Select Cooking-Style" %>
-  <%= f.input :price %>
-  <%= f.input :speciality, collection: ["Seafood", "Traditional", "Sosatie", "Potjiekos", "Boerewors", "Braaibroodjies", "Vegetarian"], prompt: "Select Specialty"%>
+<div class="sizzle-form-container">
+  <%= simple_form_for(@sizzler) do |f| %>
+  <%= f.input :title, input_html: { class: 'form-control' } %>
+  <%= f.input :location, input_html: { class: 'form-control' } %>
+  <%= f.input :cooking_style, collection: ["Charcoal", "Wood", "Gas", "Hibachi grill"], prompt: "Select Cooking-Style", input_html: { class: 'form-select' } %>
+  <%= f.input :price, input_html: { class: 'form-control' } %>
+  <%= f.input :speciality, collection: ["Seafood", "Traditional", "Sosatie", "Potjiekos", "Boerewors", "Braaibroodjies", "Vegetarian"], prompt: "Select Specialty", input_html: { class: 'form-select' } %>
   <%= f.hidden_field :user_id, value: @user.id %>
-  <%= f.input :photo, as: :file %>
-  <%= f.submit %>
+  <%= f.input :photo, as: :file, input_html: { class: 'form-control' } %>
+  <%= f.submit class: 'siz-btn' %>
 <% end %>
+
+</div>

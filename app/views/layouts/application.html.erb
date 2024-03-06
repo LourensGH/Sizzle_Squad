@@ -12,6 +12,10 @@
     <!--not there on the slides, but inthe lecture-->
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js"></script>
     <%= stylesheet_link_tag("custom") %>
+    <%= stylesheet_link_tag( "account" ) %>
+    <%= stylesheet_link_tag( "sizzlers_new" ) %>
+    <%= stylesheet_link_tag( "all_bookings" ) %>
+
     <%= javascript_importmap_tags %>
 
   </head>
@@ -21,9 +25,10 @@
       <div class="logo">
         <%= link_to image_tag("Sizzle-logo.png"), root_path  %>
       </div>
-      <div class="nav-links">
+      <div class="nav-links mx-5">
         <%= link_to "Create a Sizzler", new_sizzler_path %>
-        <%= link_to "my sizzlers", pages_path %>
+        <%= link_to "My Sizzles", pages_path %>
+        <%#= link_to "my bookings", sizzler_booking_path(@sizzler) %>
       </div>
     </nav>
       <p class="notice"><%= notice %></p>
