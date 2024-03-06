@@ -1,9 +1,12 @@
-<h1>New booking</h1>
+<div class="bookings-container">
+  <h1>New booking</h1>
 
 <%= simple_form_for([ @sizzler, @booking ]) do |f| %>
-  <%= f.input :date %>
+  <%= f.input :date, as: :date %>
   <%= f.hidden_field :sizzler_id, value: @sizzler.id %>
   <%= f.hidden_field :user_id, value: @user.id %>
   <%= f.hidden_field :accepted, value: false %>
   <%= f.submit "Book Sizzler", class: "btn btn-primary" %>
 <% end %>
+
+</div>

@@ -1,5 +1,5 @@
-<h1>Hire <%= @sizzler.title %></h1>
-
-<p>R<%= @sizzler.price%> per hour</p>
-
-<%= link_to "Hire", new_sizzler_booking_path(@sizzler.id) %>
+<div class="bookings-container">
+  <h1>Hire <%= @sizzler.title %></h1>
+  <p>R<%= @sizzler.price%> per hour</p>
+  <%= link_to "Hire this Sizzler", new_sizzler_booking_path(@sizzler.id), class: "btn btn-primary" %>
+</div>
