@@ -27,6 +27,6 @@ class SizzlersController < ApplicationController
   private
 
   def sizzler_params
-    params.require(:sizzler).permit(:title, :location, :cooking_style, :price, :speciality, :user_id)
+    params.require(:sizzler).permit(:title, :location, :cooking_style, :price, :speciality, :user_id, :photo)
   end
 end
