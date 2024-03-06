@@ -2,7 +2,11 @@
   <% @sizzlers.each do |sizzler| %>
   <div class="card-sizzle">
     <div class="title">
-      <%= image_tag("sizzle_icon.png", class: "icon-flame") %>
+      <% if sizzler.photo.present? %>
+          <%= cl_image_tag sizzler.photo.key, class: "icon-flame" %>
+        <% else %>
+          <%= image_tag("sizzle_icon.png", class: "icon-flame") %>
+        <% end %>
       <h1><%= sizzler.title %></h1>
     </div>
     <p><strong>Location:</strong> <%= sizzler.location %></p>
