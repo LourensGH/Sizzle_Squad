@@ -5,6 +5,5 @@
   <%= f.input :price %>
   <%= f.input :speciality, collection: ["Seafood", "Traditional", "Sosatie", "Potjiekos", "Boerewors", "Braaibroodjies", "Vegetarian"], prompt: "Select Specialty"%>
   <%= f.hidden_field :user_id, value: @user.id %>
-  <%= f.input :photo, as: :file %>
   <%= f.submit %>
 <% end %>

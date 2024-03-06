@@ -3,10 +3,12 @@ class SizzlersController < ApplicationController
 
   def index
     @sizzlers = Sizzler.all
+    @user = current_user
   end
 
   def show
     @sizzler = Sizzler.find(params[:id])
+    @user = current_user
   end
 
   def new

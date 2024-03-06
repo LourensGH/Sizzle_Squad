@@ -20,6 +20,7 @@
       <div class="nav-links">
         <%= link_to "Create a Sizzler", new_sizzler_path %>
         <%= link_to "my sizzlers", pages_path %>
+        <%= link_to 'Logout', destroy_user_session_path, method: :delete if user_signed_in? %>
       </div>
     </nav>
       <p class="notice"><%= notice %></p>
