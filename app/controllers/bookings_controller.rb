@@ -16,6 +16,7 @@ class BookingsController < ApplicationController
   end
 
   def show
+    @user = current_user
     @bookings = Booking.all
   end
 

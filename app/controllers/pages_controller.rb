@@ -3,7 +3,9 @@ class PagesController < ApplicationController
     @user = current_user
   end
 
-  def sign_out
+  def show
+    @sizzler = Sizzler.find(params[:id])
     @user = current_user
+    @bookings = Booking.where(user_id: @user)
   end
 end

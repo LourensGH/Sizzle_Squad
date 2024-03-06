@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+
+.sizzle-card {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 16px;
+  margin: 16px 0;
+  border-radius: 10px;
+}
+.sizzle-account-container {
+  margin: 0 auto;
+  width: 80%;
+
+  h1 {
+    color: #122A4D;
+    font-size: 24px;
+    font-family: "Archivo Black", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    margin: 0;
+  }
+}
+.sizzle-item {
+  padding: 8px;
+  margin: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #122a4d37;
+  border-radius: 4px;
+}
+.date-container {
+  margin: 16px 0;
+  padding:16px;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+}
+.left {
+  display: flex;
+  flex-direction: column;
+}

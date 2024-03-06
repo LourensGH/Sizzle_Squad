@@ -9,6 +9,9 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag("custom") %>
+    <%= stylesheet_link_tag( "account" ) %>
+    <%= stylesheet_link_tag( "sizzlers_new" ) %>
+
     <%= javascript_importmap_tags %>
   </head>
 
@@ -19,7 +22,7 @@
       </div>
       <div class="nav-links">
         <%= link_to "Create a Sizzler", new_sizzler_path %>
-        <%= link_to "my sizzlers", pages_path %>
+        <%= link_to "my sizzles", pages_path %>
       </div>
     </nav>
       <p class="notice"><%= notice %></p>
