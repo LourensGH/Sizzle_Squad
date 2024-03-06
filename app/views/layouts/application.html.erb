@@ -8,12 +8,16 @@
     <%= favicon_link_tag "sizzle_fav.png" %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css" rel="stylesheet">
+    <!--not there on the slides, but inthe lecture-->
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js"></script>
     <%= stylesheet_link_tag("custom") %>
     <%= stylesheet_link_tag( "account" ) %>
     <%= stylesheet_link_tag( "sizzlers_new" ) %>
     <%= stylesheet_link_tag( "all_bookings" ) %>
 
     <%= javascript_importmap_tags %>
+
   </head>
 
   <body>
