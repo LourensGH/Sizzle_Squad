@@ -3,3 +3,5 @@
 <p>R<%= @sizzler.price%> per hour</p>
 
 <%= link_to "Hire",  new_sizzler_booking_path(@sizzler) %>
+
+<%= link_to "All bookings", sizzler_bookings(@sizzler) %>
