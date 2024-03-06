@@ -1,0 +1,17 @@
+<div class="sizzle-account-container">
+  <h1 class="mb-3">Bookings for <%= @sizzler.title %></h1>
+
+  <% @bookings.each do | booking | %>
+  <div class="date-container">
+    <div class="date-item">
+      <%= booking.user.email %>
+      <br>
+      <%= booking.date %>
+    </div>
+    <div class="link-container">
+      <button class="btn btn-success">Accept</button>
+      <button class="btn btn-danger">Decline</button>
+    </div>
+  </div>
+  <% end %>
+</div>

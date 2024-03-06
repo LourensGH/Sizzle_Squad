@@ -3,9 +3,8 @@ Rails.application.routes.draw do
 
 
   resources :sizzlers do
-    resources :bookings, only: [:index, :create, :show, :new]
+    resources :bookings
   end
-  resources :bookings, only: [:destroy]
   resources :pages
   root to: "sizzlers#index"
 

@@ -8,29 +8,29 @@ class BookingsController < ApplicationController
     @sizzler = Sizzler.find(params[:sizzler_id])
     @booking = Booking.new
     @user = current_user
-    redirect_to sizzler_bookings_path(@sizzler)
   end
 
   def create
     @booking = Booking.new(booking_params)
     if @booking.save
-      redirect_to sizzler_booking_path(@booking, @booking.sizzler, @booking.accepted), notice: "Booking successfully created."
+      redirect_to sizzler_booking_path(@booking.sizzler.id, @booking.id), notice: "Booking successfully created."
     else
       render :new, status: :unprocessable_entity
     end
   end
 
   def show
+    @user = current_user
     @bookings = Booking.all
-    @booking = Booking.find(params[:id])
-    @sizzler = @booking.sizzler
+    # @booking = Booking.find(params[:id])
+    # @sizzler = @booking.sizzler
   end
 
   def destroy
     @booking = Booking.find(params[:id])
     @sizzler = @booking.sizzler
     @booking.destroy
-    redirect_to sizzler_bookings_path(@sizzler)
+    redirect_to sizzler_booking_path(@sizzler)
   end
 
   private
