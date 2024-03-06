@@ -14,6 +14,11 @@ module SizzleSquad
       generate.test_framework :test_unit, fixture: false
     end
 
+    #set time zone
+    config.time_zone = 'Africa/Johannesburg'
+
+    config.i18n.default_locale = :en
+    
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.1
 

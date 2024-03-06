@@ -3,6 +3,7 @@ class SizzlersController < ApplicationController
 
   def index
     @sizzlers = Sizzler.all
+    @user = current_user
   end
 
   def show
