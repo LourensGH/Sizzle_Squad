@@ -1,16 +1,18 @@
-<div class="sizzle-account-container">
-  <h1>My Sizzles</h1>
-  <div class="sizzle-card">
-    <% @user.owned_sizzlers.each do |sizzle| %>
-    <div class="sizzle-item">
-      <div class="left">
-        <strong><%= sizzle.title %></strong>
-        <%= sizzle.price %>
+<div class="bookings-container">
+  <div class="inner-container">
+    <h1>My Sizzles</h1>
+    <div class="sizzle-card">
+      <% @user.owned_sizzlers.each do |sizzle| %>
+      <div class="sizzle-item">
+        <div class="left">
+          <strong><%= sizzle.title %></strong>
+          <%= sizzle.price %>
+        </div>
+        <div class="link-container">
+          <%= link_to "View bookings", page_path(sizzle.id), class: "m-2" %>
+        </div>
       </div>
-      <div class="link-container">
-        <%= link_to "View bookings", page_path(sizzle.id), class: "m-2" %>
-      </div>
+      <% end %>
     </div>
-    <% end %>
   </div>
 </div>

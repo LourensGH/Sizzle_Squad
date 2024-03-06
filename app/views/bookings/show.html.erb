@@ -8,7 +8,10 @@
           <p><%= booking.date %></p>
           <p><%= booking.sizzler.title %></p>
         </div>
-        <%= link_to "Delete", sizzler_booking_path(booking), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+        <div class="buttons">
+          <%= link_to "Delete", sizzler_booking_path(booking), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+          <button class="btn btn-warning">Pending</button>
+        </div>
       </div>
     <% end %>
   </div>

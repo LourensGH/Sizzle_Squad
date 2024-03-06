@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
 
 .sizzle-card {
-  width: 50%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   background-color: white;
   padding: 16px;
-  margin: 16px 0;
+  margin: 24px 0;
   border-radius: 10px;
 }
 .sizzle-account-container {
@@ -14,7 +14,6 @@
   width: 80%;
   display: flex;
   flex-direction: column;
-
 
   h1 {
     color: #122A4D;
@@ -24,6 +23,10 @@
     font-style: normal;
     margin: 0;
   }
+  .inner-container {
+    width: 100%;
+  }
+
 }
 .sizzle-item {
   padding: 8px;
