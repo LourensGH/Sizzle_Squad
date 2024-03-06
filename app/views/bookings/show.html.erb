@@ -1,13 +1,3 @@
-<!--<h1>All bookings</h1>
-
-<%# @bookings.each do |booking| %>-->
-<!--  <div style="display: block;">-->
-    <%#= booking.user.email %>
-    <%#= booking.date %>
-    <%#= booking.sizzler.title %>
-<!--  </div>-->
-  <%#= link_to "Delete", sizzler_booking_path %>
-<%# end %>
 
 <h1>All bookings</h1>
 
@@ -17,5 +7,6 @@
     <%= booking.date %>
     <%= booking.sizzler.title %>
   </div>
-  <%= link_to "Delete", sizzler_booking_path(@sizzler, booking), method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%= link_to "Delete", booking_path(booking), method: :delete, data: { turbo_confirm: "Are you sure?" } %>
+
 <% end %>

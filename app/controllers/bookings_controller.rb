@@ -1,10 +1,14 @@
 class BookingsController < ApplicationController
 
+  def index
+    @bookings = Booking.all
+  end
 
   def new
     @sizzler = Sizzler.find(params[:sizzler_id])
     @booking = Booking.new
     @user = current_user
+    redirect_to sizzler_bookings_path(@sizzler)
   end
 
   def create
@@ -23,10 +27,10 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    @sizzler = Sizzler.find(params[:sizzler_id])
-    @booking = @sizzler.bookings.find(params[:id])
-    @booking.destroy  # Destroy the booking
-    redirect_to root_path
+    @booking = Booking.find(params[:id])
+    @sizzler = @booking.sizzler
+    @booking.destroy
+    redirect_to sizzler_bookings_path(@sizzler)
   end
 
   private
