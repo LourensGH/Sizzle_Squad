@@ -8,7 +8,6 @@ class SizzlersController < ApplicationController
 
   def show
     @sizzler = Sizzler.find(params[:id])
-    @user = current_user
   end
 
   def new
