@@ -1,21 +1,47 @@
+<div class="banner">
+  <%#= image_tag "Braai/clint-bustrillos-3_M4NxDo89A-unsplash.jpg"%>
+  <div class="inner-banner-container">
+    <div class="banner-items">
+      <h2>What type of braai are you in the mood for?</h2>
+      <%= form_with url: sizzlers_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Type a keyword"
+          %>
+        <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
 <div class="sizzle-container">
   <% @sizzlers.each do |sizzler| %>
   <div class="card-sizzle">
-    <div class="title">
-      <% if @user && @user.owned_sizzlers.include?(sizzler) && @user.photo.present?%>
-        <%= cl_image_tag @user.photo.key, class: "icon-flame" %>
+    <div class="card-img">
+      <% if sizzler.photos.present? %>
+        <%= cl_image_tag sizzler.photos.first.key, class: "card-photo"%>
       <% else %>
-        <%= image_tag("sizzle_icon.png", class: "icon-flame") %>
+        <%= image_tag("default-braai-2.jpg", class: "card-photo") %>
       <% end %>
-      <h1><%= sizzler.title %></h1>
     </div>
-    <p><strong>Location:</strong> <%= sizzler.location %></p>
-    <p><strong>Cooking style:</strong> <%= sizzler.cooking_style%></p>
-    <p><strong>Price:</strong> <%= sizzler.price %></p>
-    <p><strong>Speciality:</strong> <%= sizzler.speciality %></p>
-    <p><strong>Owner:</strong> <%= sizzler.user.email %></p>
+    <div class="card-info">
+      <div class="title">
+        <% if @user && @user.owned_sizzlers.include?(sizzler) && @user.photo.present?%>
+          <%= cl_image_tag @user.photo.key, class: "icon-flame" %>
+        <% else %>
+          <%= image_tag("sizzle_icon.png", class: "icon-flame") %>
+        <% end %>
+        <h1><%= sizzler.title %></h1>
+      </div>
+      <p><strong>Location:</strong> <%= sizzler.location %></p>
+      <p><strong>Cooking style:</strong> <%= sizzler.cooking_style%></p>
+      <p><strong>Price:</strong> <%= sizzler.price %></p>
+      <p><strong>Speciality:</strong> <%= sizzler.speciality %></p>
+      <p><strong>Owner:</strong> <%= sizzler.user.email %></p>
 
-    <%= link_to "View", sizzler_path(sizzler), class: "btn btn-outline-primary rounded w-100" %>
+      <%= link_to "View", sizzler_path(sizzler), class: "btn btn-outline-primary rounded w-100" %>
+    </div>
   </div>
   <% end %>
 </div>

@@ -6,4 +6,11 @@ class Sizzler < ApplicationRecord
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
   has_many_attached :photos
+
+  include PgSearch
+pg_search_scope :global_search,
+                against: [:cooking_style, :speciality],
+                using: {
+                  tsearch: { prefix: true }
+                }
 end

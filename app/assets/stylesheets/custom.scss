@@ -29,7 +29,6 @@ nav {
   justify-content: space-between;
   width: 20%;
   background-color: white;
-  padding: 24px;
   margin: 16px;
   border-radius: 10px;
 }
@@ -50,6 +49,7 @@ nav {
   display: flex;
   align-items: center;
   margin: 8px;
+
 
   h1 {
     color: #122A4D;
@@ -114,4 +114,43 @@ nav {
   .keep {
     text-align: center;
   }
+}
+.card-photo{
+  width:100%;
+  border-radius: 10px 10px 0 0;
+}
+.card-info {
+  padding:24px;
+}
+
+// banner styling
+.banner {
+  height: 400px;
+  margin-bottom: 32px;
+  background-image: url("Braai/egor-gordeev-9RGiGtY28xg-unsplash.jpg");
+  background-size: cover;
+  background-position: 0px -445px;
+  background-repeat: no-repeat;
+
+  h2 {
+    color: white;
+    font-size: 16px;
+    font-family: "Archivo Black", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    margin: 8px 0px;
+  }
+
+  .inner-banner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+
+  }
+  .banner-items{
+    width: 50%;
+  }
+
 }
