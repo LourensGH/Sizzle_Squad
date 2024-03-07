@@ -3,9 +3,15 @@ Rails.application.routes.draw do
 
 
   resources :sizzlers do
-    resources :bookings
+    resources :bookings do
+      member do
+        patch :accept
+        patch :decline
+      end
+    end
   end
   resources :pages
+
   root to: "sizzlers#index"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

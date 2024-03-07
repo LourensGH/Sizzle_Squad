@@ -33,6 +33,20 @@ class BookingsController < ApplicationController
     redirect_to sizzler_booking_path(@sizzler)
   end
 
+  def accept
+    @sizzler = Sizzler.find(params[:sizzler_id])
+    @booking = Booking.find(params[:id])
+    @booking.update(accepted: "accepted")
+    redirect_to page_path(@sizzler)
+  end
+
+  def decline
+    @sizzler = Sizzler.find(params[:sizzler_id])
+    @booking = Booking.find(params[:id])
+    @booking.update(accepted: "declined")
+    redirect_to page_path(@sizzler)
+  end
+
   private
 
   def booking_params
