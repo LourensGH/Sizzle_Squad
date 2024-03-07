@@ -21,12 +21,17 @@ export default class extends Controller {
 
   #addMarkersToMap() {
     this.markersValue.forEach((marker) => {
-      new mapboxgl.Marker()
-        .setLngLat([ marker.lng, marker.lat ])
-        .addTo(this.map)
-    })
-  }
+      const popup = new mapboxgl.Popup().setHTML(marker.info_window_html) // added
 
+        // Create a HTML element for your custom marker   //added
+      const customMarker = document.createElement("div")
+      customMarker.innerHTML = marker.marker_html
+        new mapboxgl.Marker(customMarker) //added argument, custom marker.
+          .setLngLat([ marker.lng, marker.lat ])
+          .setPopup(popup) // added
+          .addTo(this.map)
+      })
+    }
   #fitMapToMarkers() {
     const bounds = new mapboxgl.LngLatBounds()
     this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
