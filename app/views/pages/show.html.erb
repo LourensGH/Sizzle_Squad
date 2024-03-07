@@ -9,8 +9,16 @@
       <%= booking.date %>
     </div>
     <div class="link-container">
-      <button class="btn btn-success">Accept</button>
-      <button class="btn btn-danger">Decline</button>
+      <% if booking.accepted == "accepted" || booking.accepted == "declined" %>
+        <p><%= booking.accepted %></p>
+      <% else %>
+        <%= form_with(model: booking, url: accept_sizzler_booking_path(@sizzler, booking), method: :patch) do |f| %>
+          <%= f.submit "Accept" %>
+        <% end %>
+        <%= form_with(model: booking, url: decline_sizzler_booking_path(@sizzler, booking), method: :patch) do |f| %>
+          <%= f.submit "Decline" %>
+        <% end %>
+      <% end %>
     </div>
   </div>
   <% end %>
