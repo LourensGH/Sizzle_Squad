@@ -8,6 +8,7 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 # Create 10 users using Devise
+
 puts "Clearing the DB"
 Booking.destroy_all
 Sizzler.destroy_all
