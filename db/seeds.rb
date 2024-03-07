@@ -16,6 +16,7 @@ User.destroy_all
 puts "Creating the Users"
 10.times do |i|
   User.create!(
+    name: Faker::Name.first_name,
     email: Faker::Internet.email,
     password: "password", # Set a default password for simplicity
     password_confirmation: "password"
