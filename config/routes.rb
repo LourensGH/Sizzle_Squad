@@ -3,9 +3,14 @@ Rails.application.routes.draw do
 
 
   resources :sizzlers do
+    collection do
+      get :nearby, action: :nearby_sizzlers
+    end
+
     member do
       post :upload_photos
     end
+
     resources :bookings do
       member do
         patch :accept
@@ -13,6 +18,7 @@ Rails.application.routes.draw do
       end
     end
   end
+
   resources :pages
 
   root to: "sizzlers#index"

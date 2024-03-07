@@ -3,7 +3,9 @@ class SizzlersController < ApplicationController
 
   def index
     @user = current_user
-    if params[:query].present?
+    if params[:radius].present?
+      redirect_to nearby_sizzlers_path(radius: params[:radius])
+    elsif params[:query].present?
       @sizzlers = Sizzler.global_search(params[:query])
     else
       @sizzlers = Sizzler.all
@@ -50,6 +52,17 @@ class SizzlersController < ApplicationController
     @sizzler = Sizzler.find(params[:id])
     @sizzler.photos.attach(params[:sizzler][:photos])
     redirect_to @sizzler
+  end
+
+  def nearby_sizzlers
+    @radius = params[:radius].presence || 10 # Default radius to 10 kilometers if not specified
+    @user_location = current_user&.location
+    if @user_location.present?
+      @sizzlers = Sizzler.near(@user_location, @radius)
+    else
+      @sizzlers = []
+    end
+    render :index
   end
 
   private

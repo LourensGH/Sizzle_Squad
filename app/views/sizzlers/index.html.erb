@@ -2,6 +2,11 @@
   <%#= image_tag "Braai/clint-bustrillos-3_M4NxDo89A-unsplash.jpg"%>
   <div class="inner-banner-container">
     <div class="banner-items">
+      <h2>Enter search radius in kilometers</h2>
+      <%= form_with(url: nearby_sizzlers_path, method: :get, class: "d-flex") do %>
+        <%= number_field_tag :radius, params[:radius], class: "form-control" %>
+        <%= submit_tag "Search", class: "btn btn-primary" %>
+      <% end %>
       <h2>What type of braai are you in the mood for?</h2>
       <%= form_with url: sizzlers_path, method: :get, class: "d-flex" do %>
         <%= text_field_tag :query,
