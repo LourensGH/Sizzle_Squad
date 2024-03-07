@@ -37,3 +37,10 @@
 
   <%= link_to "Hire this Sizzler", new_sizzler_booking_path(@sizzler.id), class: "btn btn-primary" %>
 </div>
+<div>
+<h3>Select Photos to Upload</h3>
+  <%= form_with(model: @sizzler, url: upload_photos_sizzler_path(@sizzler), method: :post) do |f| %>
+      <%= f.file_field :photos, multiple: true %>
+      <%= f.submit "Upload" %>
+  <% end %>
+</div>

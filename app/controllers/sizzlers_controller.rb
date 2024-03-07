@@ -46,6 +46,12 @@ class SizzlersController < ApplicationController
     end
   end
 
+  def upload_photos
+    @sizzler = Sizzler.find(params[:id])
+    @sizzler.photos.attach(params[:sizzler][:photos])
+    redirect_to @sizzler
+  end
+
   private
 
   def sizzler_params

@@ -3,6 +3,9 @@ Rails.application.routes.draw do
 
 
   resources :sizzlers do
+    member do
+      post :upload_photos
+    end
     resources :bookings do
       member do
         patch :accept
