@@ -29,8 +29,9 @@
         <%= link_to image_tag("Sizzle-logo.png"), root_path  %>
       </div>
       <div class="nav-links mx-5">
-        <%= link_to "Become a Sizzler", new_sizzler_path , class: "nav-btn" %>
-        <%#= link_to "my bookings", sizzler_booking_path(@sizzler) %>
+        <%= link_to "View Bookings",  "/sizzlers/:sizzler_id/bookings/:id" %>
+        <%= link_to "List Your Sizzler", new_sizzler_path %>
+        <%= link_to "My Sizzles", pages_path %>
       </div>
     </nav>
       <p class="notice"><%= notice %></p>

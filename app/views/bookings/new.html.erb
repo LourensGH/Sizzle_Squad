@@ -5,7 +5,7 @@
   <%= f.input :date, as: :date %>
   <%= f.hidden_field :sizzler_id, value: @sizzler.id %>
   <%= f.hidden_field :user_id, value: @user.id %>
-  <%= f.hidden_field :accepted, value: false %>
+  <%= f.hidden_field :accepted, value: "pending" %>
   <%= f.submit "Book Sizzler", class: "btn btn-primary" %>
 <% end %>
 

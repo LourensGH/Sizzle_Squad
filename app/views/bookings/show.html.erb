@@ -10,7 +10,13 @@
         </div>
         <div class="buttons">
           <%= link_to "Delete", sizzler_booking_path(booking), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
-          <button class="btn btn-warning">Pending</button>
+          <% if booking.accepted == "pending" %>
+            <button class="btn btn-warning"><%= booking.accepted %></button>
+          <% elsif booking.accepted == "accepted" %>
+            <button class="btn btn-success"><%= booking.accepted %></button>
+          <% else %>
+            <button class="btn btn-danger"><%= booking.accepted %></button>
+          <% end %>
         </div>
       </div>
     <% end %>
