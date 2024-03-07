@@ -12,3 +12,29 @@
   <%= link_to "Hire this Sizzler", new_sizzler_booking_path(@sizzler.id), class: "btn btn-primary" %>
 </div>
 
+  <div id="sizzlerCarousel" class="carousel slide" data-bs-ride="carousel">
+    <% if @sizzler.photos.present? %>
+      <div class="carousel-inner">
+        <% @sizzler.photos.each_with_index do |photo, index| %>
+          <div class="carousel-item <%= 'active' if index.zero? %>">
+            <%= cl_image_tag photo.key, class: "d-block w-100 img", alt: "Sizzler Photo" %>
+          </div>
+        <% end %>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#sizzlerCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#sizzlerCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    <% else %>
+      <div class="flexbox">
+        <div class="keep">
+          <h1>No Photos For this Sizzlerino</h1>
+          <%= image_tag("sizzle_icon.png", class: "icon-flame") %>
+        </div>
+      </div>
+    <% end %>
+    </div>

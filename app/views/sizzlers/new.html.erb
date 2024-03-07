@@ -6,8 +6,9 @@
   <%= f.input :price, input_html: { class: 'form-control' } %>
   <%= f.input :speciality, collection: ["Seafood", "Traditional", "Sosatie", "Potjiekos", "Boerewors", "Braaibroodjies", "Vegetarian"], prompt: "Select Specialty", input_html: { class: 'form-select' } %>
   <%= f.hidden_field :user_id, value: @user.id %>
-  <%= f.input :photo, as: :file, input_html: { class: 'form-control' } %>
+  <%= f.fields_for :photos do |photo_fields| %>
+    <%= photo_fields.file_field :photo, multiple: true, direct_upload: true %>
+  <% end %>
   <%= f.submit class: 'siz-btn' %>
 <% end %>
-
 </div>

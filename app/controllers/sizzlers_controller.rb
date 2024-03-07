@@ -31,6 +31,12 @@ class SizzlersController < ApplicationController
   def create
     @sizzler = Sizzler.new(sizzler_params)
 
+    if params[:sizzler][:photos].present?
+      params[:sizzler][:photos].each do |key, photo|
+        @sizzler.photos.attach(photo)
+      end
+    end
+
     if @sizzler.save!
       redirect_to sizzler_path(@sizzler), notice: "Sizzler was successfully created."
     else
@@ -41,6 +47,6 @@ class SizzlersController < ApplicationController
   private
 
   def sizzler_params
-    params.require(:sizzler).permit(:title, :location, :cooking_style, :price, :speciality, :user_id, :photo)
+    params.require(:sizzler).permit(:title, :location, :cooking_style, :price, :speciality, :user_id)
   end
 end
