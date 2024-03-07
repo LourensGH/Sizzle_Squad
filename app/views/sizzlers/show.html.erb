@@ -1,16 +1,37 @@
 <div class="bookings-container">
   <h1><%= @sizzler.title %></h1>
-
-  <p>R<%= @sizzler.price%> per hour</p>
-  <div id="sizzlerCarousel" class="carousel slide" data-bs-ride="carousel">
-    <% if @sizzler.photos.present? %>
-      <div class="carousel-inner">
-        <% @sizzler.photos.each_with_index do |photo, index| %>
-          <div class="carousel-item <%= 'active' if index.zero? %>">
-            <%= cl_image_tag photo.key, class: "d-block w-100 img", alt: "Sizzler Photo" %>
-          </div>
-        <% end %>
+  <div class="hire-container">
+    <p class="price-show">R<%= @sizzler.price%> per hour</p>
+    <%= link_to "Hire this Sizzler", new_sizzler_booking_path(@sizzler.id), class: "btn-card-hire" %>
+  </div>
+    <p class="blurb">
+I'm practically a braai whisperer, turning raw ingredients into mouthwatering, perfectly charred delights with the finesse of a culinary magician. My grilling prowess leaves everyone clamoring for seconds, turning every barbecue into a legendary feast that sparks envy among neighboring backyards.</p>
+  <div class="grid-container">
+    <div class="photo-container">
+            <div class="map-container">
+        <div class="map-item" style="width: 100%; height: 100%;"
+          data-controller="map"
+          data-map-markers-value="<%= @markers.to_json %>"
+          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
       </div>
+      <% @sizzler.photos[0..2].each do | photo | %>
+      <%= cl_image_tag photo.key, class: "photo-item" %>
+      <% end %>
+
+      <% @sizzler.photos[3..4].each do | photo | %>
+      <%= cl_image_tag photo.key, class: "photo-item" %>
+      <% end %>
+    </div>
+  </div>
+<!-- <div id="sizzlerCarousel" class="carousel slide" data-bs-ride="carousel">-->
+    <%# if @sizzler.photos.present? %>
+<!--      <div class="carousel-inner">-->
+        <%# @sizzler.photos.each_with_index do |photo, index| %>
+<!--          <div class="carousel-item <%#= 'active' if index.zero? %>">-->
+            <%#= cl_image_tag photo.key, class: "d-block w-100 img", alt: "Sizzler Photo" %>
+<!--          </div>-->
+        <%# end %>
+<!--      </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#sizzlerCarousel" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
@@ -19,21 +40,14 @@
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
       </button>
-    <% else %>
-      <div class="flexbox">
+    <%# else %>-->
+<!--      <div class="flexbox">
         <div class="keep">
           <h1>No Photos For this Sizzlerino</h1>
-          <%= image_tag("sizzle_icon.png", class: "icon-flame") %>
-        </div>
+          <%#= image_tag("sizzle_icon.png", class: "icon-flame") %>-->
+<!--        </div>
       </div>
-    <% end %>
-  </div>
+    <%# end %>-->
+<!--  </div>-->
 
-  <div style="width: 100%; height: 600px;"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
-
-  <%= link_to "Hire this Sizzler", new_sizzler_booking_path(@sizzler.id), class: "btn btn-primary" %>
 </div>

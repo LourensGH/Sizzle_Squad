@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Yellowtail&display=swap');
+
+$darkblue: #122A4d;
+$lightblue: #00AEE0;
+$mustard: #FBB316;
+$maroon: #EE5126;
+
+.photo-container {
+	// Use Grid if browser supports it
+	display: grid;
+	grid-gap: 8px;
+	grid-template-columns: 1fr 2fr 2fr;
+  margin-bottom: 24px;
+
+}
+.photo-item {
+  border-radius: 8px;
+  border: 16px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.grid-container {
+  height: 50vh;
+}
+.map-item {
+  padding: 16px;
+  border-radius: 16px;
+}
+.hire-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 24px 0px;
+}
+.map-container {
+  display: flex;
+  justify-content: flex-end;
+}
+.price-show{
+  font-size: 32px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  color: $darkblue;
+  color: #122a4dd1;
+}
+.blurb {
+  font-family: "Montserrat", sans-serif;
+  color: #122a4db7;
+  font-weight: 400;
+
+}
+
+.btn-card-hire {
+  width: 20%;
+  text-align: center;
+  margin: 0px 16px;
+  background: none;
+  border: none;
+  background-color: $maroon;
+  text-decoration: none;
+  color: white;
+  padding: 8px 24px;
+  border-radius: 16px;
+  transition: all 0.5s ease;
+
+  &:hover {
+    background-color: #bb3813;
+  }
+}
