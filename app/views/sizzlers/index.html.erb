@@ -16,13 +16,14 @@
 </div>
 
 <div class="sizzle-container">
-  <% @sizzlers.each do |sizzler| %>
+  <% photos_array = ["braai-1.jpg", "braai-2.jpg", "braai-3.jpg","braai-4.jpg", "braai-5.jpg", "braai-6.jpg", "braai-7.jpg", "braai-8.jpg","braai-9.jpg","braai-10.jpg"] %>
+  <% @sizzlers.each_with_index do |sizzler, index| %>
   <div class="card-sizzle">
     <div class="card-img">
       <% if sizzler.photos.present? %>
         <%= cl_image_tag sizzler.photos.first.key, class: "card-photo"%>
       <% else %>
-        <%= image_tag("default-braai-2.jpg", class: "card-photo") %>
+        <%= image_tag( photos_array.sample, class: "card-photo") %>
       <% end %>
     </div>
     <div class="card-info">
@@ -38,8 +39,6 @@
       <p><strong>Cooking style:</strong> <%= sizzler.cooking_style%></p>
       <p><strong>Price:</strong> <%= sizzler.price %></p>
       <p><strong>Speciality:</strong> <%= sizzler.speciality %></p>
-      <p><strong>Owner:</strong> <%= sizzler.user.email %></p>
-
       <%= link_to "View", sizzler_path(sizzler), class: "btn btn-outline-primary rounded w-100" %>
     </div>
   </div>
