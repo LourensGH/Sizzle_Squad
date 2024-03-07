@@ -48,14 +48,43 @@ nav {
 
 }
 
+.info-item {
+  margin: 8px 0px;
+
+}
+.price {
+  font-family: "Montserrat", "sans-serif";
+  font-weight: 900;
+  color: $darkblue;
+  margin-bottom: 16px;
+}
+
+.btn-card {
+  background-color: $maroon;
+  text-decoration: none;
+  color: white;
+  padding: 8px 24px;
+  border-radius: 16px;
+  transition: all 0.5s ease;
+
+  &:hover {
+    background-color: #bb3813;
+  }
+}
 .card-sizzle {
   display: flex;
   flex-direction: column;
   justify-content:space-around;
-  width: 25%;
+  width: 20%;
   background-color: white;
   margin: 16px;
   border-radius: 10px;
+  transition: all 0.5s ease;
+
+  &:hover {
+    background-color: #ffffff;
+    width: 27%;
+  }
 }
 
 .sizzle-container {
@@ -73,7 +102,6 @@ nav {
 .title {
   display: flex;
   align-items: center;
-  margin: 8px;
 
 
   h1 {
@@ -140,17 +168,24 @@ nav {
     text-align: center;
   }
 }
+.card-img {
+  width: 100%;
+  padding: 10px;
+  max-height: 170px;
+  overflow: hidden;
+
+
+}
 .card-photo{
   width: 100%;
-  max-height: 300px;
-  border-radius: 15px;
-  object-fit: cover;
-  padding: 10px;
+  height: 100%;
+  border-radius: 8px;
+  object-fit:cover;
 }
 .card-info {
-  z-index: 1;
   position: relative;
-  padding: 24px;
+  z-index: 1;
+  padding: 0px 24px 24px 24px;
 }
 
 // banner styling
@@ -194,15 +229,39 @@ nav {
 
 }
 // cooking icon
-
-.cooking-icon {
-  z-index: 2;
+.icon-container {
   position: absolute;
-  top:-40px;
-  left: 388px;
-  width: 60px;
+  top:-44px;
+  right:-8px;
+}
+.cooking-icon {
+  width: 50px;
   background-color: $mustard;
   border-radius: 100px;
   padding: 12px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.cooking-style {
+  position: relative;
+}
+.cooking-tag {
+  color: $darkblue;
+  font-family: "Montserrat", "san-serif";
+  font-weight: 600;
+  position: absolute;
+  right:52px;
+  top: 0px;
+}
+.footer-icon {
+  margin: 0 8px;
+  width: 40px;
+}
+footer {
+  margin: auto 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color:#bfd2ee;
+  height: 100px;
+  background-color: $darkblue;
 }
