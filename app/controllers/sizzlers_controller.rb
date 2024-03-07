@@ -2,8 +2,12 @@ class SizzlersController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
 
   def index
-    @sizzlers = Sizzler.all
     @user = current_user
+    if params[:query].present?
+      @sizzlers = Sizzler.global_search(params[:query])
+    else
+      @sizzlers = Sizzler.all
+    end
   end
 
   def show
