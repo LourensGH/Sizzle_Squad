@@ -42,3 +42,40 @@ $maroon: #EE5126;
     }
 
   }
+
+  .btn-pending {
+    text-align: center;
+    margin: 0px 16px;
+    background: none;
+    border: none;
+    background-color: #FBB316;
+    text-decoration: none;
+    color: white;
+    padding: 4px 16px;
+    border-radius: 16px;
+    transition: all 0.5s ease;
+  }
+  .btn-decline {
+    text-align: center;
+    margin: 0px 16px;
+    background: none;
+    border: none;
+    background-color: #bb3813;
+    text-decoration: none;
+    color: white;
+    padding: 4px 16px;
+    border-radius: 16px;
+    transition: all 0.5s ease;
+  }
+.btn-accepted {
+  text-align: center;
+  margin: 0px 16px;
+  background: none;
+  border: none;
+  background-color: #13bb1b;
+  text-decoration: none;
+  color: white;
+  padding: 4px 16px;
+  border-radius: 16px;
+  transition: all 0.5s ease;
+}
