@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Yellowtail&display=swap');
+
+$darkblue: #122A4d;
+$lightblue: #00AEE0;
+$mustard: #FBB316;
+$maroon: #EE5126;
+
+.btn-card-date {
+  text-align: center;
+  width: 100%;
+  background: none;
+  border: none;
+  background-color: $maroon;
+  text-decoration: none;
+  color: white;
+  padding: 8px 24px;
+  border-radius: 16px;
+  transition: all 0.5s ease;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+
+  &:hover {
+    background-color: #bb3813;
+  }
+}
+.bookings-container-show {
+    width: 42%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 16px auto;
+
+
+    h1 {
+      color: #122A4D;
+      font-size: 32px;
+      font-family: "Archivo Black", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+      margin: 0;
+    }
+
+  }
