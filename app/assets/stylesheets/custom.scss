@@ -68,8 +68,21 @@ nav {
     background-color: transparent;
   }
 }
-.info-item {
-  margin: 8px 0px;
+.info-item-sea {
+  font-size: 12px;
+  background-color:$darkblue;
+  padding: 2px;
+  margin-bottom: 16px;
+  color: white;
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  border-radius: 30px;
+  opacity: 0.4;
+}
+
+.location-info {
+  font-size: 14px;
 
 }
 .price {
@@ -294,4 +307,8 @@ footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+.location-icon {
+  width: 16px;
+  margin: 8px;
 }
