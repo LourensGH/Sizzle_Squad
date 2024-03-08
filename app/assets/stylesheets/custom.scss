@@ -229,8 +229,6 @@ nav {
 // banner styling
 .banner {
   z-index: 100;
-  position: sticky;
-  top: 0px;
   height: 400px;
   margin-bottom: 32px;
   background-image: url("egor-gordeev-9RGiGtY28xg-unsplash.jpg");
@@ -322,4 +320,7 @@ footer {
   width: 16px;
   margin: 8px;
 }
-
+.switch {
+  width: 40px;
+  color: white;
+}
