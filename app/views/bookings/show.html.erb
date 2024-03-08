@@ -5,7 +5,7 @@
       <div class="booking-item-container">
         <div class="booking-item">
           <p><strong>Booking by:</strong> <%= booking.user.name%></p>
-          <p><strong>Date: </strong><%= booking.date.strftime("%Y-%m-%d") %></p>
+          <p><strong>Date: </strong><%= booking.date.try(:strftime, "%Y-%m-%d") %></p>
           <p><strong>For:</strong> <%= booking.sizzler.title %></p>
         </div>
         <div class="buttons">
