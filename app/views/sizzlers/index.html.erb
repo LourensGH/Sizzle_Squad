@@ -2,7 +2,11 @@
   <%#= image_tag "Braai/clint-bustrillos-3_M4NxDo89A-unsplash.jpg"%>
   <div class="inner-banner-container">
     <div class="banner-items" data-controller="search-swap">
-      <h1>Hello <%= @user.name %></h1>
+      <% if user_signed_in? %>
+        <h1>Hello <%= current_user.name  %></h1>
+      <% else %>
+        <h1>Hi there!</h1>
+      <% end %>
       <div data-search-swap-target="form1" class="d-none">
       <h2>Enter search radius in kilometers</h2>
         <%= form_with(url: nearby_sizzlers_path, method: :get, class: "d-flex") do %>
