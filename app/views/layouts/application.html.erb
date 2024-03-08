@@ -6,6 +6,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= favicon_link_tag "sizzle_fav.png" %>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css" rel="stylesheet">
@@ -15,26 +16,30 @@
     <%= stylesheet_link_tag( "account" ) %>
     <%= stylesheet_link_tag( "sizzlers_new" ) %>
     <%= stylesheet_link_tag( "all_bookings" ) %>
+    <%= stylesheet_link_tag( "sizzler_show" ) %>
+    <%= stylesheet_link_tag( "date" ) %>
+
 
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
     <nav>
-      <div class="nav-links mx-5">
-        <%= link_to "My Sizzles", pages_path %>
-      </div>
       <div class="logo">
         <%= link_to image_tag("Sizzle-logo.png"), root_path  %>
       </div>
       <div class="nav-links mx-5">
         <%= link_to "View Bookings",  "/sizzlers/:sizzler_id/bookings/:id" %>
-        <%= link_to "List Your Sizzler", new_sizzler_path %>
+        <%= link_to "Become Sizzler", new_sizzler_path %>
         <%= link_to "My Sizzles", pages_path %>
       </div>
     </nav>
+      <%= yield %>
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
-      <%= yield %>
+      <br>
+      <footer>
+        Made with <span><svg class="footer-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ee5126"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M12 6.00019C10.2006 3.90317 7.19377 3.2551 4.93923 5.17534C2.68468 7.09558 2.36727 10.3061 4.13778 12.5772C5.60984 14.4654 10.0648 18.4479 11.5249 19.7369C11.6882 19.8811 11.7699 19.9532 11.8652 19.9815C11.9483 20.0062 12.0393 20.0062 12.1225 19.9815C12.2178 19.9532 12.2994 19.8811 12.4628 19.7369C13.9229 18.4479 18.3778 14.4654 19.8499 12.5772C21.6204 10.3061 21.3417 7.07538 19.0484 5.17534C16.7551 3.2753 13.7994 3.90317 12 6.00019Z" stroke="#ee5126" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg></span> by Cassie, Lyn, Lourens & Chris!
+      </footer>
   </body>
 </html>

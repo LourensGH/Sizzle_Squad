@@ -1,9 +1,9 @@
 <!--<h1>Hello</h1>-->
-<h1>All bookings</h1>
+<h1>All bookings for <%= @user.name %></h1>
 
 <% @bookings.each do |booking| %>
   <div style="display: block;">
-    <%= booking.user.email %>
+    <%= booking.user.name %>
     <%= booking.date %>
     <%= booking.sizzler.title %>
   </div>

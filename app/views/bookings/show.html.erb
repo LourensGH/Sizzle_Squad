@@ -1,21 +1,21 @@
-<div class="bookings-container">
-  <h1>All bookings</h1>
+<div class="bookings-container-show">
+  <h1>All <%= @user.name %>'s bookings </h1>
   <div class="bookings-list">
       <% @bookings.each do |booking| %>
       <div class="booking-item-container">
         <div class="booking-item">
-          <p><%= booking.user.email %></p>
-          <p><%= booking.date %></p>
-          <p><%= booking.sizzler.title %></p>
+          <p><strong>Booking by:</strong> <%= booking.user.name%></p>
+          <p><strong>Date: </strong><%= booking.date.try(:strftime, "%Y-%m-%d") %></p>
+          <p><strong>For:</strong> <%= booking.sizzler.title %></p>
         </div>
         <div class="buttons">
-          <%= link_to "Delete", sizzler_booking_path(booking), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+          <%#= link_to "Delete", sizzler_booking_path(booking), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
           <% if booking.accepted == "pending" %>
-            <button class="btn btn-warning"><%= booking.accepted %></button>
+            <button class="btn-pending"><%= booking.accepted %></button>
           <% elsif booking.accepted == "accepted" %>
-            <button class="btn btn-success"><%= booking.accepted %></button>
+            <button class="btn-accepted"><%= booking.accepted %></button>
           <% else %>
-            <button class="btn btn-danger"><%= booking.accepted %></button>
+            <button class="btn-decline"><%= booking.accepted %></button>
           <% end %>
         </div>
       </div>

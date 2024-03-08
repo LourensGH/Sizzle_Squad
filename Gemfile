@@ -42,6 +42,9 @@ gem "devise"
 # cloudinary
 gem "cloudinary"
 
+#flatpickr
+gem 'flatpickr'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 

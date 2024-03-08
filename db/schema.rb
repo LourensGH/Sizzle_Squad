@@ -64,6 +64,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_07_212935) do
     t.datetime "updated_at", null: false
     t.float "latitude"
     t.float "longitude"
+    t.json "user_photos"
     t.index ["user_id"], name: "index_sizzlers_on_user_id"
   end
 
@@ -78,6 +79,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_07_212935) do
     t.string "location"
     t.float "latitude"
     t.float "longitude"
+    t.string "name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

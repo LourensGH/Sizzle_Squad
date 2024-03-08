@@ -1,12 +1,13 @@
 <div class="bookings-container">
-  <h1>New booking</h1>
+  <h1>When would you like to Sizzle?</h1>
 
-<%= simple_form_for([ @sizzler, @booking ]) do |f| %>
-  <%= f.input :date, as: :date %>
-  <%= f.hidden_field :sizzler_id, value: @sizzler.id %>
-  <%= f.hidden_field :user_id, value: @user.id %>
-  <%= f.hidden_field :accepted, value: "pending" %>
-  <%= f.submit "Book Sizzler", class: "btn btn-primary" %>
-<% end %>
-
+  <%= simple_form_for([ @sizzler, @booking ]) do |f| %>
+    <%= f.input :date,
+          as: :string,
+          input_html: { data: { controller: "datepicker" } } %>
+    <%= f.hidden_field :sizzler_id, value: @sizzler.id %>
+    <%= f.hidden_field :user_id, value: @user.id %>
+    <%= f.hidden_field :accepted, value: "pending" %>
+    <%= f.submit "Book Sizzler", class: "btn-card-date" %>
+  <% end %>
 </div>
