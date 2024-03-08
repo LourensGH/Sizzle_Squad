@@ -1,39 +1,56 @@
 <div class="bookings-container">
   <h1><%= @sizzler.title %></h1>
-
-  <p>R<%= @sizzler.price%> per hour</p>
-  <div id="sizzlerCarousel" class="carousel slide" data-bs-ride="carousel">
-    <% if @sizzler.photos.present? %>
-      <div class="carousel-inner">
-        <% @sizzler.photos.each_with_index do |photo, index| %>
-          <div class="carousel-item <%= 'active' if index.zero? %>">
-            <%= cl_image_tag photo.key, class: "d-block w-100 img", alt: "Sizzler Photo" %>
-          </div>
-        <% end %>
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#sizzlerCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#sizzlerCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    <% else %>
-      <div class="flexbox">
-        <div class="keep">
-          <h1>No Photos For this Sizzlerino</h1>
-          <%= image_tag("sizzle_icon.png", class: "icon-flame") %>
+  <div class="hire-container">
+    <p class="price-show">R<%= @sizzler.price%> per hour</p>
+    <%= link_to "Hire this Sizzler", new_sizzler_booking_path(@sizzler.id), class: "btn-card-hire" %>
+  </div>
+    <p class="blurb">
+I'm practically a braai whisperer, turning raw ingredients into mouthwatering, perfectly charred delights with the finesse of a culinary magician. My grilling prowess leaves everyone clamoring for seconds, turning every barbecue into a legendary feast that sparks envy among neighboring backyards.</p>
+  <div class="grid-container">
+    <div class="photo-container">
+        <div class="map-container">
+        <div class="map-item" style="width: 100%; height: 100%;"
+          data-controller="map"
+          data-map-markers-value="<%= @markers.to_json %>"
+          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
       </div>
-    <% end %>
+      <% @sizzler.photos[0..2].each do | photo | %>
+      <%= cl_image_tag photo.key, class: "photo-item" %>
+      <% end %>
+      <% @sizzler.photos[3..4].each do | photo | %>
+      <%= cl_image_tag photo.key, class: "photo-item" %>
+      <% end %>
+    </div>
   </div>
-
-  <div style="width: 100%; height: 600px;"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  <div class="bottom-container">
+    <div class="reviews" >
+      <div class="trophy-tile">
+            <div class="trophy">
+      <svg class="review-icon"fill="#122A4d" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512.001 512.001" xml:space="preserve" stroke="#122A4d"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M415.142,32.163V0H96.861v32.164H0.001v15.209c0,35.932,11.25,69.857,31.679,95.524 c17.674,22.207,40.413,36.101,65.181,40.143v0.121c0,74.184,51.023,136.669,119.817,154.219v61.939h-78.414v41.132h-13.043 c-23.348,0-42.344,18.996-42.344,42.345v29.206h346.247v-29.206c0-23.348-18.995-42.345-42.344-42.345h-13.043v-41.133h-78.414 v-61.939c68.795-17.55,119.818-80.036,119.818-154.219v-0.121c24.768-4.042,47.507-17.937,65.18-40.143 C500.75,117.229,512,83.305,512,47.372V32.163H415.142z M96.861,152.009c-34.026-8.394-60.656-44.407-65.612-89.428h65.612 V152.009z M373.739,470.867h13.043c6.168,0,11.256,4.707,11.865,10.715h-285.29c0.609-6.009,5.698-10.715,11.866-10.715h13.043 H373.739z M295.325,429.735h47.996v10.715H168.682v-10.715h47.996H295.325z M247.095,399.317v-57.267 c0.067,0.004,0.135,0.005,0.202,0.008c1.147,0.062,2.299,0.107,3.452,0.145c0.31,0.01,0.62,0.027,0.93,0.035 c1.437,0.039,2.877,0.061,4.323,0.061c1.446,0,2.887-0.022,4.323-0.061c0.31-0.008,0.619-0.025,0.93-0.035 c1.154-0.038,2.305-0.083,3.452-0.145c0.065-0.004,0.133-0.005,0.2-0.008v57.267H247.095z M384.725,32.164V183.16 c0,63.797-46.656,116.893-107.638,126.986c-3.364,0.554-6.752,0.981-10.154,1.267c-0.051,0.004-0.101,0.009-0.152,0.013 c-1.764,0.146-3.53,0.257-5.3,0.331c-0.046,0.002-0.091,0.003-0.136,0.005c-3.561,0.146-7.128,0.146-10.688,0 c-0.045-0.002-0.089-0.003-0.134-0.005c-1.769-0.074-3.538-0.185-5.303-0.331c-0.05-0.004-0.098-0.009-0.148-0.013 c-3.403-0.286-6.791-0.714-10.156-1.267c-60.982-10.091-107.638-63.189-107.638-126.987V32.164v-1.747h257.447V32.164z M415.142,152.009V62.581h65.612C475.797,107.602,449.167,143.615,415.142,152.009z"></path> </g> </g> <g> <g> <path d="M349.434,132.076l-64.561-9.383l-28.872-58.499l-28.872,58.499l-64.559,9.383l46.715,45.536l-11.027,64.298l57.744-30.357 l57.744,30.357l-11.028-64.298L349.434,132.076z M273.347,186.307l-17.346-9.119l-17.346,9.119l3.312-19.316l-14.033-13.679 l19.393-2.818L256,132.921l8.673,17.573l19.394,2.818l-14.032,13.679L273.347,186.307z"></path> </g> </g> </g></svg>
+    </div>
+    <h2>Reviews</h2>
+      </div>
+    <p class="review-sentence"> One of the most loved Braai masters on Sizzle, according to guests <strong>Rated 4.92 </strong> out of <strong>5 stars.</strong></p>
   </div>
-
-  <%= link_to "Hire this Sizzler", new_sizzler_booking_path(@sizzler.id), class: "btn btn-primary" %>
+  <div class="optionals">
+    <div class="optionals-head">
+      <p>Features</p>
+    </div>
+      <div class="item-container">
+      <div class="option-item">
+        <svg class="option-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M8 17H16M8 17C8 18.1046 7.10457 19 6 19C4.89543 19 4 18.1046 4 17M8 17C8 15.8954 7.10457 15 6 15C4.89543 15 4 15.8954 4 17M16 17C16 18.1046 16.8954 19 18 19C19.1046 19 20 18.1046 20 17M16 17C16 15.8954 16.8954 15 18 15C19.1046 15 20 15.8954 20 17M10 5V11M4 11L4.33152 9.01088C4.56901 7.58593 4.68776 6.87345 5.0433 6.3388C5.35671 5.8675 5.79705 5.49447 6.31346 5.26281C6.8993 5 7.6216 5 9.06621 5H12.4311C13.3703 5 13.8399 5 14.2662 5.12945C14.6436 5.24406 14.9946 5.43194 15.2993 5.68236C15.6435 5.96523 15.904 6.35597 16.425 7.13744L19 11M4 17H3.6C3.03995 17 2.75992 17 2.54601 16.891C2.35785 16.7951 2.20487 16.6422 2.10899 16.454C2 16.2401 2 15.9601 2 15.4V14.2C2 13.0799 2 12.5198 2.21799 12.092C2.40973 11.7157 2.71569 11.4097 3.09202 11.218C3.51984 11 4.0799 11 5.2 11H17.2C17.9432 11 18.3148 11 18.6257 11.0492C20.3373 11.3203 21.6797 12.6627 21.9508 14.3743C22 14.6852 22 15.0568 22 15.8C22 15.9858 22 16.0787 21.9877 16.1564C21.9199 16.5843 21.5843 16.9199 21.1564 16.9877C21.0787 17 20.9858 17 20.8 17H20" stroke="#122A4d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+        Can travel
+        </div>
+      <div class="option-item">
+        <svg class="option-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M11 8V3C11 2.44772 10.5523 2 10 2H3C2.44772 2 2 2.44772 2 3V8C2 10.2091 3.79086 12 6 12H7C9.20914 12 11 10.2091 11 8Z" stroke="#122a4d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M15 16V2H18C20.2091 2 22 3.79086 22 6V16H18" stroke="#122a4d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M15 16V21C15 21.5523 15.4477 22 16 22H17C17.5523 22 18 21.5523 18 21V16" stroke="#122a4d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M5 12V21C5 21.5523 5.44772 22 6 22H7C7.55228 22 8 21.5523 8 21V12" stroke="#122a4d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M5 6L5 2" stroke="#122a4d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M8 6L8 2" stroke="#122a4d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+        Braai utensils
+      </div>
+      <div class="option-item">
+        <svg class="option-icon" fill="#122A4d" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" stroke="#122A4d"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M468.885,398.052C497.134,355.933,512,307.127,512,256C512,114.842,397.158,0,256,0S0,114.842,0,256s114.842,256,256,256 c51.124,0,99.93-14.866,142.05-43.115l28.446,28.446c19.526,19.528,51.307,19.529,70.834,0c19.529-19.529,19.529-51.305,0-70.834 L468.885,398.052z M256,478.609c-122.746,0-222.609-99.862-222.609-222.609S133.254,33.391,256,33.391 S478.609,133.254,478.609,256c0,42.209-11.657,82.597-33.862,117.915l-24.329-24.329c16.262-28.455,24.8-60.534,24.8-93.586 c0-104.334-84.883-189.217-189.217-189.217S66.783,151.666,66.783,256S151.666,445.217,256,445.217 c33.05,0,65.129-8.537,93.582-24.799l24.33,24.33C338.593,466.953,298.207,478.609,256,478.609z M319.569,201.517l-61.054-61.054 c-6.519-6.519-17.091-6.519-23.611,0c-6.52,6.519-6.52,17.091,0,23.611l42.332,42.332l-23.611,23.611l-42.333-42.332 c-6.519-6.519-17.091-6.519-23.611,0c-6.52,6.519-6.52,17.091,0,23.611l42.332,42.332l-23.612,23.612l-42.332-42.332 c-6.519-6.519-17.091-6.519-23.611,0s-6.52,17.091,0,23.611l61.054,61.054c28.839,28.84,73.002,31.922,105.072,10.627l21.93,21.93 c-6.305,13.236-6.477,28.682-0.516,42.04c-22.137,11.59-46.721,17.656-71.998,17.656c-85.922,0-155.826-69.904-155.826-155.826 S170.077,100.174,256,100.174S411.826,170.077,411.826,256c0,25.278-6.066,49.862-17.66,72.004 c-13.358-5.96-28.802-5.79-42.04,0.515l-21.93-21.93C351.468,274.554,348.436,230.384,319.569,201.517z M295.959,295.961 c-17.992,17.991-46.067,19.37-65.604,4.55l70.154-70.154C315.317,249.879,313.966,277.954,295.959,295.961z M473.718,473.72 c-6.51,6.509-17.1,6.51-23.612,0c-8.304-8.304-80.087-80.087-88.204-88.204c-6.51-6.51-6.51-17.102,0-23.612 c6.512-6.51,17.1-6.51,23.612,0c7.988,7.988,79.98,79.98,88.204,88.204C480.228,456.618,480.228,467.211,473.718,473.72z"></path> </g> </g> </g></svg>
+        Left overs
+      </div>
+    </div>
+  </div>
+  </div>
 </div>

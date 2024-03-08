@@ -1,11 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Yellowtail&display=swap');
+
+$darkblue: #122A4d;
+$lightblue: #00AEE0;
+$mustard: #FBB316;
+$maroon: #EE5126;
 
 nav {
-  z-index: 100;
+  z-index: 1001;
   background-color: #F4F4F4 ;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   position: sticky;
   top: 0;
@@ -41,15 +47,82 @@ nav {
   }
 
 }
+.input {
+  width: 100%;
+  border: none; /* Remove default border */
+  border-bottom: 1px solid white; /* Add white bottom border */
+  background-color: transparent;
+  color: white;
+  outline: none;
 
+  &:focus {
+    outline: none; /* Remove default focus outline */
+    border-bottom-color: $maroon
+  }
+  &:active {
+    outline: none;
+    background-color: transparent;
+  }
+  &:valid {
+    outline: none;
+    background-color: transparent;
+  }
+}
+.info-item-sea {
+  font-size: 12px;
+  background-color:$darkblue;
+  padding: 2px;
+  margin-bottom: 16px;
+  color: white;
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  border-radius: 30px;
+  opacity: 0.4;
+}
+
+.location-info {
+  font-size: 14px;
+
+}
+.price {
+  font-family: "Montserrat", "sans-serif";
+  font-weight: 900;
+  color: $darkblue;
+  margin-bottom: 16px;
+}
+
+.btn-card {
+  text-align: center;
+  width: 30%;
+  margin: 0px 16px;
+  background: none;
+  border: none;
+  background-color: $maroon;
+  text-decoration: none;
+  color: white;
+  padding: 8px 24px;
+  border-radius: 16px;
+  transition: all 0.5s ease;
+
+  &:hover {
+    background-color: #bb3813;
+  }
+}
 .card-sizzle {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content:space-around;
   width: 20%;
   background-color: white;
   margin: 16px;
   border-radius: 10px;
+  transition: all 0.5s ease;
+
+  &:hover {
+    background-color: #ffffff;
+    width: 27%;
+  }
 }
 
 .sizzle-container {
@@ -67,12 +140,11 @@ nav {
 .title {
   display: flex;
   align-items: center;
-  margin: 8px;
 
 
   h1 {
     color: #122A4D;
-    font-size: 24px;
+    font-size: 20px;
     font-family: "Archivo Black", sans-serif;
     font-weight: 400;
     font-style: normal;
@@ -134,33 +206,49 @@ nav {
     text-align: center;
   }
 }
-.card-photo{
-  width:100%;
-  max-height: 200px;
-  border-radius: 10px 10px 0 0;
-  object-fit: cover;
+.card-img {
+  width: 100%;
+  padding: 10px;
+  max-height: 170px;
+  overflow: hidden;
+
 
 }
+.card-photo{
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  object-fit:cover;
+}
 .card-info {
-  padding:24px;
+  position: relative;
+  z-index: 1;
+  padding: 0px 24px 24px 24px;
 }
 
 // banner styling
 .banner {
+  z-index: 100;
   position: sticky;
-  top: 60px;
-  height: 200px;
+  top: 0px;
+  height: 400px;
   margin-bottom: 32px;
   background-image: url("egor-gordeev-9RGiGtY28xg-unsplash.jpg");
   background-size: cover;
   background-position: 0px -445px;
   background-repeat: no-repeat;
-
-  h2 {
+  h1 {
     color: white;
+    font-family: "Montserrat", cursive;
+    font-weight: 900;
+    font-style: normal;
+
+  }
+  h2 {
+    color: rgba(255, 255, 255, 0.558);
     font-size: 16px;
     font-family: "Montserrat", sans-serif;
-    font-weight: 600;
+    font-weight: 400;
     font-style: normal;
     margin: 8px 0px;
   }
@@ -177,4 +265,50 @@ nav {
     width: 50%;
   }
 
+}
+// cooking icon
+.icon-container {
+  position: absolute;
+  top:-44px;
+  right:-8px;
+}
+.cooking-icon {
+  width: 50px;
+  background-color: $mustard;
+  border-radius: 100px;
+  padding: 12px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.cooking-style {
+  position: relative;
+}
+.cooking-tag {
+  color: $darkblue;
+  font-family: "Montserrat", "san-serif";
+  font-weight: 600;
+  position: absolute;
+  right:52px;
+  top: 0px;
+}
+.footer-icon {
+  margin: 0 8px;
+  width: 40px;
+}
+footer {
+  margin: auto 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color:#bfd2ee;
+  height: 100px;
+  background-color: $darkblue;
+}
+.price-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.location-icon {
+  width: 16px;
+  margin: 8px;
 }

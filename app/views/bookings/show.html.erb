@@ -1,15 +1,15 @@
 <div class="bookings-container">
-  <h1>All bookings</h1>
+  <h1>All <%= @user.name %>'s bookings </h1>
   <div class="bookings-list">
       <% @bookings.each do |booking| %>
       <div class="booking-item-container">
         <div class="booking-item">
-          <p><%= booking.user.email %></p>
+          <p><%= booking.user.name%></p>
           <p><%= booking.date %></p>
           <p><%= booking.sizzler.title %></p>
         </div>
         <div class="buttons">
-          <%= link_to "Delete", sizzler_booking_path(booking), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+          <%#= link_to "Delete", sizzler_booking_path(booking), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
           <% if booking.accepted == "pending" %>
             <button class="btn btn-warning"><%= booking.accepted %></button>
           <% elsif booking.accepted == "accepted" %>
