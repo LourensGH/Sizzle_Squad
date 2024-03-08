@@ -107,7 +107,7 @@ $maroon: #EE5126;
   justify-content: flex-start;
   width: 50%;
   align-items: center;
-  justify-content: space-around;
+
 }
 .bottom-container {
   display: flex;
@@ -119,6 +119,8 @@ $maroon: #EE5126;
   align-items: center;
 }
 .option-item {
+  text-align: center;
+  width: 30%;
   display: flex;
   flex-direction: column;
   margin: 0px 24px;

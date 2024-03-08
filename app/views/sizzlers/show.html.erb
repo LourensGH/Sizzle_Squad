@@ -1,4 +1,4 @@
-<div class="bookings-container">
+<div class="bookings-container-show">
   <h1><%= @sizzler.title %></h1>
   <div class="hire-container">
     <p class="price-show">R<%= @sizzler.price%> per hour</p>
@@ -15,14 +15,23 @@ I'm practically a braai whisperer, turning raw ingredients into mouthwatering, p
           data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
       </div>
-      <% @sizzler.photos[0..2].each do | photo | %>
-      <%= cl_image_tag photo.key, class: "photo-item" %>
+      <% if @sizzler.photos.present? %>
+        <% @sizzler.photos[0..2].each do | photo | %>
+        <%= cl_image_tag photo.key, class: "photo-item" %>
+        <% end %>
+        <% @sizzler.photos[3..4].each do | photo | %>
+        <%= cl_image_tag photo.key, class: "photo-item" %>
+        <% end %>
+      <% elsif @sizzler.user_photos %>
+        <% @sizzler.user_photos[0..2].each do | photo | %>
+          <%= image_tag photo, class: "photo-item" %>
+        <% end %>
+        <% @sizzler.user_photos[3..4].each do | photo | %>
+          <%= image_tag photo, class: "photo-item" %>
+        <% end %>
       <% end %>
-      <% @sizzler.photos[3..4].each do | photo | %>
-      <%= cl_image_tag photo.key, class: "photo-item" %>
-      <% end %>
+      </div>
     </div>
-  </div>
   <div class="bottom-container">
     <div class="reviews" >
       <div class="trophy-tile">

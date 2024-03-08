@@ -28,21 +28,50 @@ puts "Creating the Sizzlers"
   Sizzler.create!(
     title: "#{Faker::Name.first_name } #{Faker::Name.last_name }",
     location: [
-      "1 Adderley St, Cape Town City Centre, Cape Town, 8000, South Africa",
-      "Corner of Darling and Bree St, Cape Town City Centre, Cape Town, 8000, South Africa",
-      "81 Long St, Cape Town City Centre, Cape Town, 8000, South Africa",
-      "10-12 Victoria Rd, Camps Bay, Cape Town, 8005, South Africa",
-      "Corner of Wale St and Burg St, Cape Town City Centre, Cape Town, 8000, South Africa",
-      "15 New Church St, Cape Town City Centre, Cape Town, 8001, South Africa",
-      "V&A Waterfront, 19 Dock Rd, Victoria & Alfred Waterfront, Cape Town, 8001, South Africa",
-      "35 Victoria Rd, Camps Bay, Cape Town, 8005, South Africa",
-      "1 Beach Rd, Mouille Point, Cape Town, 8005, South Africa",
-      "67 Strand St, Cape Town City Centre, Cape Town, 8000, South Africa"
+      "123 Long Street, Cape Town, 8000",
+      "456 Main Road, Sea Point, Cape Town, 8005",
+      "789 Victoria Road, Camps Bay, Cape Town, 8040",
+      "10 Beach Avenue, Mouille Point, Cape Town, 8001",
+      "15 High Street, Green Point, Cape Town, 8051",
+      "20 Church Street, Woodstock, Cape Town, 7915",
+      "35 Market Street, Bo-Kaap, Cape Town, 8000",
+      "40 Kloof Street, Gardens, Cape Town, 8001",
+      "55 Bree Street, Cape Town City Centre, Cape Town, 8000",
+      "70 Wale Street, Cape Town City Centre, Cape Town, 8001",
+      "85 Loop Street, Cape Town City Centre, Cape Town, 8000",
+      "100 Main Road, Observatory, Cape Town, 7925",
+      "115 Strand Street, Cape Town City Centre, Cape Town, 8000",
+      "120 Sir Lowry Road, Woodstock, Cape Town, 7915",
+      "135 Buitengracht Street, Cape Town City Centre, Cape Town, 8000",
+      "150 Regent Road, Sea Point, Cape Town, 8005",
+      "165 Main Road, Green Point, Cape Town, 8051",
+      "180 Long Street, Cape Town City Centre, Cape Town, 8000",
+      "195 Kloof Nek Road, Tamboerskloof, Cape Town, 8001",
+      "200 Adderley Street, Cape Town City Centre, Cape Town, 8000"
     ].sample,
     cooking_style: ["Charcoal", "Wood", "Gas", "Hibachi grill"].sample,
     price: Faker::Commerce.price(range: 100..500),
     speciality: ["Seafood", "Traditional", "Sosatie", "Potjiekos", "Boerewors", "Braaibroodjies", "Vegetarian"].sample,
-    user_id: User.pluck(:id).sample
+    user_id: User.pluck(:id).sample,
+    user_photos: [
+      "https://images.unsplash.com/photo-1554306297-0c86e837d24b?q=80&w=2036&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://plus.unsplash.com/premium_photo-1682285866620-7213160e1ba8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1534797258760-1bd2cc95a5bd?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1504564321107-4aa3efddb5bd?q=80&w=1976&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1602945072887-1171e7ce1450?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1588182657969-777d766e31ab?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1526939615915-ba16b7ad9013?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1500220959218-81a28e9292d0?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1528052265763-a800584f3472?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1542356714-e9158d92487e?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1551218808-94e220e084d2?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://plus.unsplash.com/premium_photo-1682285866539-ce802e461c9e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1685161456862-bb980e5a8200?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://plus.unsplash.com/premium_photo-1663011511161-22eea0cb8564?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://plus.unsplash.com/premium_photo-1676550908362-d58250d35d73?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://plus.unsplash.com/premium_photo-1676550908028-05c59c4b0569?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  ].sample(6)
   )
 end
 puts "done!"
