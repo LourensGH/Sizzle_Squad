@@ -63,3 +63,10 @@ I'm practically a braai whisperer, turning raw ingredients into mouthwatering, p
   </div>
   </div>
 </div>
+<div>
+<h3>Select Photos to Upload</h3>
+  <%= form_with(model: @sizzler, url: upload_photos_sizzler_path(@sizzler), method: :post) do |f| %>
+      <%= f.file_field :photos, multiple: true %>
+      <%= f.submit "Upload" %>
+  <% end %>
+</div>

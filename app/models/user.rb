@@ -8,4 +8,7 @@ class User < ApplicationRecord
   has_many :owned_sizzlers, foreign_key: 'user_id', class_name: 'Sizzler'
   has_many :booked_sizzlers, through: :bookings, class_name: 'Sizzler'
   has_one_attached :photo
+
+  geocoded_by :location
+  after_validation :geocode, if: :will_save_change_to_location?
 end
