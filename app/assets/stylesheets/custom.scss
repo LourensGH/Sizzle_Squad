@@ -178,3 +178,155 @@ nav {
   }
 
 }
+
+//sign up form.............................................................
+
+/* Add styling to the form container */
+.form-container {
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.08);
+  font-weight: bold;
+}
+
+/* Style form inputs */
+.form-inputs {
+  margin-bottom: 20px;
+}
+
+.form-inputs input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* Style the submit button */
+.form-actions {
+  text-align: center;
+}
+
+.form-actions input[type="submit"] {
+  background-color: #3498db;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form-actions input[type="submit"]:hover {
+  background-color: #2980b9;
+}
+
+/* Style the file input */
+.form-inputs input[type="file"] {
+  margin-top: 10px;
+}
+
+/* Add some spacing to error messages */
+#error_explanation {
+  color: red;
+  margin-bottom: 20px;
+}
+
+/* Add styling to the form container */
+.form-container {
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style form inputs */
+.form-inputs {
+  margin-bottom: 20px;
+}
+
+.form-inputs input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* Style the submit button */
+.form-actions {
+  text-align: center;
+}
+
+.form-actions input[type="submit"] {
+  background-color: #3498db;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form-actions input[type="submit"]:hover {
+  background-color: #2980b9;
+}
+
+.form-inputs input[type="file"] {
+  margin-top: 10px;
+}
+
+#error_explanation {
+  color: red;
+  margin-bottom: 20px;
+}
+
+.background-container {
+  background-image: url('braai-5.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.background-container::before{
+  background-image: inherit; /* Inherit the background image from the parent */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(10px); /* Adjust the blur amount as needed */
+  z-index: -1;
+}
+
+#img-background {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#img-background::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('braai-5.jpg');
+  background-image: inherit;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
+  filter: blur(120px);
+}
